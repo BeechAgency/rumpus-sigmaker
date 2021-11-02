@@ -1,0 +1,286 @@
+:root {
+    /* Colours */
+    --gold : #fcb415;
+    --green: #039286;
+    --green-dark: #02756b;
+    --white : #ffffff;
+    --black : #1d2327;
+    --grey: #888888;
+    --grey-light: #f0f0f1;
+
+    --text-color: var(--black);
+    --text-base : 18px;
+
+    --ff-title: 'Coniferous', Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --ff-body:   'Mr Jones', Arial,  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Sans-Serif;
+    
+
+    --shadow : 0 7px 10px rgb(0 0 0 / 10%);
+    --radius : 13px;
+    --box-padding: 3rem 3rem;
+}
+
+@font-face {
+    font-family: 'Coniferous';
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Bold.eot');
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Bold.eot?#iefix') format('embedded-opentype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Bold.woff2') format('woff2'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Bold.woff') format('woff'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Bold.ttf') format('truetype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Bold.svg#Coniferous-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Coniferous';
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Black.eot');
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Black.eot?#iefix') format('embedded-opentype'),
+         url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Black.woff2') format('woff2'),
+         url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Black.woff') format('woff'),
+         url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Black.ttf') format('truetype'),
+         url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Black.svg#coniferousblack') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Coniferous';
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Regular.eot');
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Regular.eot?#iefix') format('embedded-opentype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Regular.woff2') format('woff2'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Regular.woff') format('woff'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Regular.ttf') format('truetype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/Coniferous-Regular.svg#Coniferous-Regular') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Mr Jones';
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Bold.eot');
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Bold.eot?#iefix') format('embedded-opentype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Bold.woff2') format('woff2'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Bold.woff') format('woff'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Bold.ttf') format('truetype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Bold.svg#MrJones-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Mr Jones';
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones.eot');
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones.eot?#iefix') format('embedded-opentype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones.woff2') format('woff2'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones.woff') format('woff'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones.ttf') format('truetype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones.svg#MrJones') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Mr Jones';
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Medium.eot');
+    src: url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Medium.eot?#iefix') format('embedded-opentype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Medium.woff2') format('woff2'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Medium.woff') format('woff'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Medium.ttf') format('truetype'),
+        url('https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/fonts/MrJones-Medium.svg#MrJones-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    font-size: var(--text-base);
+}
+body {
+    margin: 0;
+    font-family: var(--ff-body);
+    color: var(--text-color);
+    font-size: var(--text-base);
+    line-height: 1.3;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background: url(https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/img/crow-bg-green.png) repeat top center, var(--green);
+}
+* {
+    box-sizing: border-box;
+}
+  
+code { font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
+
+h1,h2,h4,h5 { 
+    font-family: var(--ff-title);
+}
+
+.logo {
+    max-height: 6rem;
+}
+
+h1 {
+    text-align: left;
+    font-size: 2.5rem;
+    color: white;
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: solid 5px #ffb30c;
+    margin: 0 auto 0 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+}
+@media only screen and (max-width: 768px) {
+    header {
+        display: block;
+        box-sizing: content-box;
+    }
+    .form-container, .sigTemplateContainer {
+        margin: 0 15px 15px;
+    }
+}
+
+.heading-block {
+    display: flex;    
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    margin: 2rem auto;
+
+}
+img.logo {
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 480px;
+    padding: var(--box-padding);
+    margin: 2rem 0 2rem;
+    background-color: var(--white);
+    border: 3px solid var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    
+}
+.sigTemplateContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: stretch;
+    background: white;
+    padding: var(--box-padding);
+    margin: 2rem;
+
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+}
+
+.sig-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: space-between;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    margin-bottom: 1.5rem;
+    padding: 0rem;
+    width: 100%;
+    max-width: 100%;
+
+}
+.inputGroup-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.inputGroup-row .inputGroup:first-child {
+    margin-right: 0.5rem;
+}
+.inputGroup-row .inputGroup:last-child {
+    margin-left: 0.5rem;
+}
+.inputGroup label {
+    font-size: 1rem;
+    padding-bottom: 0.2rem;
+    font-weight: bold;
+    max-width: 100%;
+}
+.inputGroup input,
+.inputGroup textarea,
+.inputGroup select {
+    width: 100%;
+    max-width: 100%;
+    border: solid 2px var(--green);
+
+    padding: 1rem;
+    border-radius: var(--radius);
+}
+.inputGroup input:focus,
+.inputGroup textarea:focus,
+.inputGroup select:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.inputGroup input:hover,
+.inputGroup textarea:hover,
+.inputGroup select:hover {
+    cursor: pointer;
+}
+label.active {
+    color: #ffb30c;
+}
+.inputGroup input,
+.inputGroup textarea,
+.inputGroup select,
+button {
+    transition: all 150ms ease;
+}
+
+.align-bottom {
+    margin-top: auto;
+}
+
+button {
+    font-size: 1rem;
+    display: block;
+    text-transform: uppercase;
+    background-color: var(--green);
+    color: var(--white);
+    font-family: var(--ff-title);
+    font-weight: bold;
+    border-radius: 33px;
+    border: 0;
+    outline: 0;
+    padding: 0.5rem 2rem;
+    margin: 1rem auto;
+}
+button:hover {
+    background-color: var(--gold);
+    cursor: pointer;
+}
