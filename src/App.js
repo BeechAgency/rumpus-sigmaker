@@ -1,25 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
-import OldSigTemplate from './old-sig';
+import RumpusTemplate from './components/rumpus-template';
+import ReactDOMServer from 'react-dom/server';
 
 
 function App() {
-  const [name, setName] = useState('Josh Wizzle');
-  const [title, setTitle] = useState('Digital Marketing Dude of Sorts');
+  const [name, setName] = useState('Rumpus Lord');
+  const [centreName, setCentreName] = useState('Catham St');
+  const [rating, setRating] = useState('Rated Exceeding under the National Quality Standard - 2020');
+  const [title, setTitle] = useState('This is a job title');
   const [mobile, setMobile] = useState('0405 000 000');
   const [email, setEmail] = useState('hello@therumpusroom.com.au');
-  const [img, setImg] = useState('https://res.cloudinary.com/mon9466/image/upload/v1598508188/beech/email-sig/josh-w_kfetgz.jpg')
-  const [lineColor, setLineColor] = useState('#fcb415');
-
+  
   const [website, setWebsite] = useState('therumpusroom.com.au');
   const [fullURL, setFullURL] = useState('https://www.therumpusroom.com.au/');
   const [officePhone, setOfficePhone] = useState('02 4940 8686');
   const [address, setAddress] = useState('121 Chatham St, Broadmeadow');
 
   const [displayMoreVisibility, setDisplayMoreVisibility] = useState('none');
-  const [displayMoreText, setDisplayMoreText] = useState('none');
+  const [displayMoreText, setDisplayMoreText] = useState('Show more');
+
+  const [codeVisible, setCodeVisible] = useState(false);
+
 
   const logo = 'https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/img/logo.svg';
+
+  const [sigOutput, setSigOutput] = useState(<RumpusTemplate name={name} title={title} office={officePhone} mobile={mobile} email={email} centreName={centreName} rating={rating} lineColor={'#fcb415'} logo={logo} href={fullURL} displayUrl={website} address={address} />);
+  const [isCopied, setIsCopied] = useState(false);
+
 
   function displayToggle(e) {
     e.preventDefault();
@@ -33,6 +41,7 @@ function App() {
     }
   }
 
+  /*
   function copySignature() {
     const cb = navigator.clipboard;
     const sig = document.querySelector('.sig-container > table');
@@ -54,13 +63,81 @@ function App() {
     //navigator.clipboard.writeText(finishedSignature);
 
     return;
+  }*/
+
+
+
+
+
+
+
+  useEffect( () => {
+    setSigOutput(<RumpusTemplate name={name} title={title} office={officePhone} mobile={mobile} email={email} centreName={centreName} rating={rating} lineColor={'#fcb415'} logo={logo} href={fullURL} displayUrl={website} address={address} />);
+  }, [name, title,officePhone, mobile, email, centreName, rating, fullURL, website, address]);
+
+  function copyTheSignature(str) {
+    function listener(e) {
+      e.clipboardData.setData("text/html", str);
+      e.clipboardData.setData("text/plain", str);
+      e.preventDefault();
+    }
+    document.addEventListener("copy", listener);
+    document.execCommand("copy");
+    document.removeEventListener("copy", listener);
+
+    return;
   }
+
+  function handleCopy() {
+    const str = document.getElementById('sigOutput').innerHTML;
+
+    copyTheSignature(str);
+
+    setIsCopied(true);
+
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1500)
+
+  }
+
+
+  function htmlProcess(str) {
+      
+    var div = document.createElement('div');
+    div.innerHTML = str.trim();
+    
+    return htmlFormat(div, 0).innerHTML;
+  }
+
+  function htmlFormat(node, level) {
+    
+    var indentBefore = new Array(level++ + 1).join('  '),
+        indentAfter  = new Array(level - 1).join('  '),
+        textNode;
+    
+    for (var i = 0; i < node.children.length; i++) {
+        
+        textNode = document.createTextNode('\n' + indentBefore);
+        node.insertBefore(textNode, node.children[i]);
+        
+        htmlFormat(node.children[i], level);
+        
+        if (node.lastElementChild === node.children[i]) {
+            textNode = document.createTextNode('\n' + indentAfter);
+            node.appendChild(textNode);
+        }
+    }
+    
+    return node;
+  }
+
 
   return (
     <div className="App">
       <div className="heading-block">
-        <img src='https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/img/logo.svg' className="logo" />
-        <h1 style={{borderBottomColor: lineColor}}>Email Signatures</h1>
+        <img src='https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/img/logo.svg' className="logo" alt='Rumpus Rooms' />
+        <h1 style={{borderBottomColor: '#fcb415'}}>Email Signatures</h1>
       </div>
       <header className="App-header">
         
@@ -83,6 +160,30 @@ function App() {
           </div>
           <div className="inputGroup-row">
             <div className='inputGroup'>
+              <label htmlFor='centreName'>Centre Name</label>
+              <input type='text' 
+                  name='centreName' 
+                  value={centreName} 
+                  onChange={ (e) => { setCentreName(e.target.value) }} />
+            </div>
+            <div className='inputGroup'>
+              <label htmlFor='address'>Address</label>
+              <select
+                  name='address' 
+                  value={address} 
+                  onChange={ (e) => { setAddress(e.target.value) }}>
+                    <option value='121 Chatham St, Broadmeadow'>Chatham St</option>
+                    <option value='90 Darling St, Broadmeadow'>Darling St</option>
+                    <option value='4 Karoburra St, Pelican'>Pelican</option>
+                    <option value='4 St Albans Close, Charlestown'>Charlestown</option>
+                    <option value='2A Reid St, Marks Point'>Marks Point</option>
+                    <option value='5 Rosegum Rd, Warabrook'>Warabrook</option>
+                    <option value='2/21 Bolton St, Newcastle'>Newcastle</option>
+              </select>
+            </div>
+          </div>
+          <div className="inputGroup-row">
+            <div className='inputGroup'>
               <label htmlFor='officePhone'>Office Phone</label>
               <input type='text' 
                   name='officePhone' 
@@ -97,7 +198,7 @@ function App() {
                   onChange={ (e) => { setMobile(e.target.value) }} />
             </div>
           </div>
-          <div className="inputGroup-row">
+
             <div className='inputGroup'>
               <label htmlFor='email'>Email</label>
               <input type='text' 
@@ -106,33 +207,16 @@ function App() {
                   onChange={ (e) => { setEmail(e.target.value) }} />
             </div>
             <div className='inputGroup'>
-              <label htmlFor='address'>Address</label>
-              <select
-                  name='address' 
-                  value={address} 
-                  onChange={ (e) => { setAddress(e.target.value) }}>
-                    <option value='121 Chatham St, Broadmeadow'>Chatham St</option>
-                    <option value='90 Darling St, Broadmeadow'>Darling St</option>
-                    <option value='4 Karoburra St, Pelican'>Pelican</option>
-                    <option value='4 St Albans Close, Charlestown'>Charlestown</option>
-                    <option value='2A Reid St, Marks Point'>Marks Point</option>
-                    <option value='5 Rosegum Rd, Warabrook'>Warabrook</option>
-              </select>
+              <label htmlFor='email'>Rating</label>
+              <input type='text' 
+                  name='Rating' 
+                  value={rating} 
+                  onChange={ (e) => { setRating(e.target.value) }} />
             </div>
-          </div>
+            
           <button onClick={ (e) => { displayToggle(e) } } >{displayMoreText}</button>
 
           <div className="show-advanced"style={{ display: displayMoreVisibility }}>
-            <div className='inputGroup'>
-              <label htmlFor='address'>Address</label>
-              <textarea type='text' 
-                  rows="2"
-                  name='address' 
-                  value={address} 
-                  onChange={ (e) => { setAddress(e.target.value) }}>
-                    {address} 
-              </textarea>
-            </div>
             <div className="inputGroup-row">
               <div className='inputGroup'>
                 <label htmlFor='website'>Website (Display)</label>
@@ -149,24 +233,38 @@ function App() {
                     onChange={ (e) => { setFullURL(e.target.value) }} />
               </div>
             </div>
+
           </div>
         </form>
         <div className='sigTemplateContainer'>
-          <div className='sig-container'>
-            <OldSigTemplate
+          <div className='sig-container' id="sigOutput">
+            <RumpusTemplate
               name={name}
               title={title}
+              office={officePhone}
               mobile={mobile}
               email={email}
-              img={img}
-              lineColor={lineColor}
+              centreName={centreName}
+              rating={rating}
+              lineColor={'#fcb415'}
               logo={logo}
               href={fullURL}
               displayUrl={website}
+              address={address}
             />
-            <button className="align-bottom" onClick={copySignature}>Copy Signature</button>
+          </div>
+          <div class="button-row">
+            <button className="align-bottom" onClick={handleCopy}>{isCopied ? 'Copied!' : 'Copy Signature'}</button>
+            <button className="align-bottom" onClick={ () => { codeVisible ? setCodeVisible(false) : setCodeVisible(true);  } }>Code</button>
+          </div>
+
+          <div className={codeVisible ? "html visible" : "html"}>
+            <pre>
+              {htmlProcess(ReactDOMServer.renderToString(sigOutput))}
+            </pre>
           </div>
         </div>
+
       </header>
     </div>
   );
