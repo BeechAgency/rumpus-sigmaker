@@ -23,7 +23,7 @@ function App() {
   const [codeVisible, setCodeVisible] = useState(false);
 
 
-  const logo = 'https://www.therumpusroom.com.au/wp-content/themes/rumpus/assets/img/logo.svg';
+  const logo = 'https://www.therumpusroom.com.au/wp-content/uploads/2022/10/RMPS_Logo-default-colour.png';
 
   const [sigOutput, setSigOutput] = useState(<RumpusTemplate name={name} title={title} office={officePhone} mobile={mobile} email={email} centreName={centreName} rating={rating} lineColor={'#fcb415'} logo={logo} href={fullURL} displayUrl={website} address={address} />);
   const [isCopied, setIsCopied] = useState(false);
