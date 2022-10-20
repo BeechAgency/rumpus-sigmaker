@@ -100,7 +100,7 @@ const RumpusTemplate = ( { name, title, office, mobile, email, address, centreNa
                                   <tbody>
                                     <tr>
                                       <td style={{verticalAlign: 'bottom'}}>
-                                        <span color="#000000" width={11} className="sc-jlyJG bbyJzT" style={{display: 'block', backgroundColor: 'rgb(0, 146, 134)'}}><img alt='Address' src='https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png' color="#000000" width={13} className="sc-iRbamj blSEcj" style={{display: 'block', backgroundColor: 'rgb(0, 146, 134)'}} /></span>
+                                        <span color="#000000" width={11} className="sc-jlyJG bbyJzT" style={{display: 'block', backgroundColor: 'rgb(0, 146, 134)'}}>{address ? <img alt='Address' src='https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png' color="#000000" width={13} className="sc-iRbamj blSEcj" style={{display: 'block', backgroundColor: 'rgb(0, 146, 134)'}} /> : ''}</span>
                                       </td>
                                     </tr>
                                   </tbody>

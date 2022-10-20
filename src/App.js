@@ -179,6 +179,7 @@ function App() {
                     <option value='2A Reid St, Marks Point'>Marks Point</option>
                     <option value='5 Rosegum Rd, Warabrook'>Warabrook</option>
                     <option value='2/21 Bolton St, Newcastle'>Newcastle</option>
+                    <option value=''>None</option>
               </select>
             </div>
           </div>
